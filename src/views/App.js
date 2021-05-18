@@ -11,7 +11,7 @@ const StyledClock = styled.div`
   height: 30rem;
   border: 20px solid white;
   border-radius: 50%;
-  margin: 51px auto;
+  margin: 50px auto;
   position: relative;
   padding: 2rem;
   box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
