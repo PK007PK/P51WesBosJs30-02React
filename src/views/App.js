@@ -38,8 +38,6 @@ const StyledClock = styled.div`
 `;
 
 function App() {
-  const secondHandRef = createRef();
-
   function setDate() {
     const secondHand = document.querySelector('.second-hand');
     const minsHand = document.querySelector('.min-hand');
@@ -72,7 +70,7 @@ function App() {
         <Layout>
           <StyledClock>
             <div class="clock-face">
-              <div ref={secondHandRef} class="hand hour-hand"></div>
+              <div class="hand hour-hand"></div>
               <div class="hand min-hand"></div>
               <div class="hand second-hand"></div>
             </div>
