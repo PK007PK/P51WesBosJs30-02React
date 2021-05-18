@@ -14,8 +14,7 @@ const StyledClock = styled.div`
   margin: 51px auto;
   position: relative;
   padding: 2rem;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef,
-    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefef, inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
 
   .clock-face {
     position: relative;
@@ -58,18 +57,9 @@ function App() {
         <Layout>
           <StyledClock>
             <div className="clock-face">
-              <div
-                style={{ transform: `rotate(${(seconds % 60) * 6 + 90}deg)` }}
-                className="hand second-hand"
-              ></div>
-              <div
-                style={{ transform: `rotate(${(minutes % 60) * 6 + 90}deg)` }}
-                className="hand min-hand"
-              ></div>
-              <div
-                style={{ transform: `rotate(${(hours % 12) * 30 + 90}deg)` }}
-                className="hand hour-hand"
-              ></div>
+              <div style={{ transform: `rotate(${(seconds % 60) * 6 + 90}deg)` }} className="hand second-hand"></div>
+              <div style={{ transform: `rotate(${(minutes % 60) * 6 + 90}deg)` }} className="hand min-hand"></div>
+              <div style={{ transform: `rotate(${(hours % 12) * 30 + 90}deg)` }} className="hand hour-hand"></div>
             </div>
           </StyledClock>
         </Layout>
