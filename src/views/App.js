@@ -1,4 +1,4 @@
-import React, { createRef, useContext, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import AppProvider, { AppContext } from '../AppContext';
@@ -38,28 +38,16 @@ const StyledClock = styled.div`
 `;
 
 function App() {
-  function setDate() {
-    const secondHand = document.querySelector('.second-hand');
-    const minsHand = document.querySelector('.min-hand');
-    const hourHand = document.querySelector('.hour-hand');
-
-    const now = new Date();
-
-    const seconds = now.getSeconds();
-    const secondsDegrees = (seconds / 60) * 360 + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-
-    const mins = now.getMinutes();
-    const minsDegrees = (mins / 60) * 360 + (seconds / 60) * 6 + 90;
-    minsHand.style.transform = `rotate(${minsDegrees}deg)`;
-
-    const hour = now.getHours();
-    const hourDegrees = (hour / 12) * 360 + (mins / 60) * 30 + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-  }
+  const [seconds, setSeconds] = useState(new Date().getSeconds());
+  const [minutes, setMinutes] = useState(new Date().getMinutes());
+  const [hours, setHours] = useState(new Date().getHours());
 
   useEffect(() => {
-    const interval = setInterval(() => setDate(), 1000);
+    const interval = setInterval(() => {
+      setSeconds(new Date().getSeconds());
+      setMinutes(new Date().getMinutes());
+      setHours(new Date().getHours());
+    }, 1000);
     return () => clearInterval(interval);
   }, []);
 
@@ -69,10 +57,19 @@ function App() {
         <GlobalStyles />
         <Layout>
           <StyledClock>
-            <div class="clock-face">
-              <div class="hand hour-hand"></div>
-              <div class="hand min-hand"></div>
-              <div class="hand second-hand"></div>
+            <div className="clock-face">
+              <div
+                style={{ transform: `rotate(${(seconds % 60) * 6 + 90}deg)` }}
+                className="hand second-hand"
+              ></div>
+              <div
+                style={{ transform: `rotate(${(minutes % 60) * 6 + 90}deg)` }}
+                className="hand min-hand"
+              ></div>
+              <div
+                style={{ transform: `rotate(${(hours % 12) * 30 + 90}deg)` }}
+                className="hand hour-hand"
+              ></div>
             </div>
           </StyledClock>
         </Layout>
