@@ -7,11 +7,8 @@ const AppProvider = ({ children }) => {
 
   const toogleIsActive = () => setIsActive((prevValue) => !prevValue);
 
-  return (
-    <AppContext.Provider value={{ isActive, toogleIsActive }}>
-      {children}
-    </AppContext.Provider>
-  );
+  // eslint-disable-next-line prettier/prettier
+  return <AppContext.Provider value={{ isActive, toogleIsActive }}>{children}</AppContext.Provider>;
 };
 
 export default AppProvider;
