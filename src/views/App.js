@@ -59,7 +59,7 @@ function App() {
             <div className="clock-face">
               <div style={{ transform: `rotate(${(seconds % 60) * 6 + 90}deg)` }} className="hand second-hand"></div>
               <div style={{ transform: `rotate(${(minutes % 60) * 6 + 90}deg)` }} className="hand min-hand"></div>
-              <div style={{ transform: `rotate(${(hours % 12) * 30 + 90}deg)` }} className="hand hour-hand"></div>
+              <div style={{ transform: `rotate(${(hours % 12) * 34 + 90}deg)` }} className="hand hour-hand"></div>
             </div>
           </StyledClock>
         </Layout>
